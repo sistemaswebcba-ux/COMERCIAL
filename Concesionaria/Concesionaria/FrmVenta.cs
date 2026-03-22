@@ -4737,6 +4737,110 @@ namespace Concesionaria
             FrmVerFotos frm = new FrmVerFotos();
             frm.ShowDialog();
         }
+
+        private void btnBuscarAuto_Click(object sender, EventArgs e)
+        {
+            FrmBuscarAuto form = new FrmBuscarAuto();
+            form.FormClosing += new FormClosingEventHandler(formBuscadorAuto_FormClosing);
+            form.ShowDialog();
+        }
+
+        private void formBuscadorAuto_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Int32 CodAuto = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+            cAuto auto = new Clases.cAuto();
+            BuscarAutoxCodigo(CodAuto);
+        }
+
+        private void BuscarAutoxCodigo(Int32 COdAuto)
+        {
+
+            Clases.cAuto auto = new Clases.cAuto();
+            DataTable trdo = auto.GetAutoxCodigo(COdAuto);
+            if (trdo.Rows.Count > 0)
+            {
+                Clases.cFunciones fun = new Clases.cFunciones();
+                txtDescripcion.Text = trdo.Rows[0]["Descripcion"].ToString();
+                txtPatente.Text = trdo.Rows[0]["Patente"].ToString();
+                txtMotor.Text = trdo.Rows[0]["Motor"].ToString();
+                txtChasis.Text = trdo.Rows[0]["Chasis"].ToString();
+                txtKms.Text = trdo.Rows[0]["Kilometros"].ToString();
+                if (txtKms.Text != "")
+                {
+                    txtKms.Text = fun.FormatoEnteroMiles(txtKms.Text);
+                }
+                txtCodAuto.Text = trdo.Rows[0]["CodAuto"].ToString();
+                if (trdo.Rows[0]["CodCiudad"].ToString() != "")
+                {
+                    cmbCiudad.SelectedValue = trdo.Rows[0]["CodCiudad"].ToString();
+                }
+
+                if (trdo.Rows[0]["CodMarca"].ToString() != "")
+                {
+                    cmbMarca.SelectedValue = trdo.Rows[0]["CodMarca"].ToString();
+                }
+
+              
+                if (trdo.Rows[0]["CodCiudad"].ToString() != "")
+                {
+                    Int32 CodCiiudad = Convert.ToInt32(trdo.Rows[0]["CodCiudad"].ToString());
+                    cCiudad citi = new cCiudad();
+                    DataTable tbciudad = citi.GetCiudadxId(CodCiiudad);
+                    fun.LlenarComboDatatable(cmbCiudad, tbciudad, "Nombre", "CodCiudad");
+                    cmbCiudad.SelectedValue = trdo.Rows[0]["CodCiudad"].ToString();
+                }
+
+
+                if (trdo.Rows[0]["Propio"].ToString() == "1")
+                {
+                    radioPropio.Checked = true;
+                    radioConcesion.Checked = false;
+                }
+
+                if (trdo.Rows[0]["Concesion"].ToString() == "1")
+                {
+                    radioPropio.Checked = false;
+                    radioConcesion.Checked = true;
+                }
+
+                Clases.cStockAuto stock = new Clases.cStockAuto();
+                DataTable trdo2 = stock.GetStockAutosVigentes(Convert.ToInt32(txtCodAuto.Text));
+                if (trdo2.Rows.Count > 0)
+                {
+                    txtCodStock.Text = trdo2.Rows[0]["CodStock"].ToString();
+                    // GetExTitular(Convert.ToInt32(trdo2.Rows[0]["CodCliente"].ToString()));
+                    GetCostos(Convert.ToInt32(txtCodStock.Text));
+                    //  CargarGastosGeneralesxCodStoxk(Convert.ToInt32(txtCodStock.Text));
+                    if (trdo2.Rows[0]["CodCliente"].ToString() != "")
+                    {
+                        // txtCodCLiente.Text = trdo2.Rows[0]["CodCliente"].ToString();
+                        // GetClientesxCodigo(Convert.ToInt32(txtCodCLiente.Text));
+                    }
+
+                }
+
+                if (txtCodStock.Text != "")
+                {
+                    GetCostos(Convert.ToInt32(txtCodStock.Text));
+                    CargarGastosGeneralesxCodStoxk(Convert.ToInt32(txtCodStock.Text));
+                }
+
+            }
+        }
+
+        private void btnBuscarCliente_Click(object sender, EventArgs e)
+        {
+            FrmBuscadorCliente frm = new FrmBuscadorCliente();
+            frm.FormClosing += new FormClosingEventHandler(FrmBuscarCliente);
+            frm.Show();
+        }
+
+        private void FrmBuscarCliente(object sender, FormClosingEventArgs e)
+        {
+            Int32 CodCliente = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+            BuscarClientexCodigo(CodCliente);
+           
+        }
     }
 };
 

@@ -350,6 +350,45 @@ namespace Concesionaria.Clases
             return cDb.ExecuteDataTable(sql);
         }
 
+        public DataTable BuscarCliente(string Nombre, string Apellido)
+        {
+            string b = "";
+            string b1 = "";
+
+            if (Nombre != "")
+                b = "1";
+            else
+                b = "0";
+
+            if (Apellido != "")
+                b1 = "1";
+            else
+                b1 = "0";
+
+            string resul = b + b1;
+
+            string sql = "select codcliente,Apellido,Nombre,Telefono ";
+            sql = sql + " from Cliente ";
+            switch (resul)
+            {
+                case "10":
+                    sql = sql + " where Nombre like " + "'%" + Nombre + "%'";
+                    break;
+
+                case "11":
+                    sql = sql + " where Nombre like " + "'%" + Nombre + "%'";
+                    sql = sql + " and Apellido like " + "'%" + Apellido + "%'";
+                    break;
+
+                case "01":
+                    sql = sql + " where  Apellido like " + "'%" + Apellido + "%'";
+                    break;
+            }
+
+            sql = sql + " Order by Apellido,Nombre ";
+            return cDb.ExecuteDataTable(sql);
+
+        }
 
     }
 }

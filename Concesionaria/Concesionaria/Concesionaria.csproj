@@ -244,6 +244,12 @@
     <Compile Include="FrmBorrarTablas.Designer.cs">
       <DependentUpon>FrmBorrarTablas.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBuscadorCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBuscadorCliente.Designer.cs">
+      <DependentUpon>FrmBuscadorCliente.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmBuscadorGenerico.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -785,6 +791,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBorrarTablas.resx">
       <DependentUpon>FrmBorrarTablas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscadorCliente.resx">
+      <DependentUpon>FrmBuscadorCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscadorGenerico.resx">
       <DependentUpon>FrmBuscadorGenerico.cs</DependentUpon>

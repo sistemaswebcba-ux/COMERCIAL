@@ -303,6 +303,8 @@
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnGrabarPreVenta = new System.Windows.Forms.Button();
+            this.btnBuscarAuto = new System.Windows.Forms.Button();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -378,6 +380,7 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.groupBox2.Controls.Add(this.btnBuscarAuto);
             this.groupBox2.Controls.Add(this.txtRutaAuto);
             this.groupBox2.Controls.Add(this.BtnVerFoto);
             this.groupBox2.Controls.Add(this.button4);
@@ -434,11 +437,12 @@
             // BtnVerFoto
             // 
             this.BtnVerFoto.Image = global::Concesionaria.Properties.Resources.tv;
-            this.BtnVerFoto.Location = new System.Drawing.Point(218, 21);
+            this.BtnVerFoto.Location = new System.Drawing.Point(265, 16);
             this.BtnVerFoto.Name = "BtnVerFoto";
             this.BtnVerFoto.Size = new System.Drawing.Size(34, 28);
             this.BtnVerFoto.TabIndex = 61;
             this.BtnVerFoto.UseVisualStyleBackColor = true;
+            this.BtnVerFoto.Visible = false;
             this.BtnVerFoto.Click += new System.EventHandler(this.BtnVerFoto_Click);
             // 
             // button4
@@ -630,7 +634,7 @@
             // 
             // txtCodAuto
             // 
-            this.txtCodAuto.Location = new System.Drawing.Point(258, 18);
+            this.txtCodAuto.Location = new System.Drawing.Point(370, 81);
             this.txtCodAuto.Name = "txtCodAuto";
             this.txtCodAuto.Size = new System.Drawing.Size(50, 22);
             this.txtCodAuto.TabIndex = 14;
@@ -789,6 +793,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnBuscarCliente);
             this.groupBox1.Controls.Add(this.txtRutaImagenCliente);
             this.groupBox1.Controls.Add(this.imgFotoCliente);
             this.groupBox1.Controls.Add(this.btnSubirFotoCliente);
@@ -3166,6 +3171,26 @@
             this.btnGrabarPreVenta.UseVisualStyleBackColor = true;
             this.btnGrabarPreVenta.Click += new System.EventHandler(this.btnGrabarPreVenta_Click);
             // 
+            // btnBuscarAuto
+            // 
+            this.btnBuscarAuto.Image = global::Concesionaria.Properties.Resources.carpeta;
+            this.btnBuscarAuto.Location = new System.Drawing.Point(219, 16);
+            this.btnBuscarAuto.Name = "btnBuscarAuto";
+            this.btnBuscarAuto.Size = new System.Drawing.Size(40, 27);
+            this.btnBuscarAuto.TabIndex = 65;
+            this.btnBuscarAuto.UseVisualStyleBackColor = true;
+            this.btnBuscarAuto.Click += new System.EventHandler(this.btnBuscarAuto_Click);
+            // 
+            // btnBuscarCliente
+            // 
+            this.btnBuscarCliente.Image = global::Concesionaria.Properties.Resources.carpeta;
+            this.btnBuscarCliente.Location = new System.Drawing.Point(373, 1);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.Size = new System.Drawing.Size(40, 27);
+            this.btnBuscarCliente.TabIndex = 76;
+            this.btnBuscarCliente.UseVisualStyleBackColor = true;
+            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
+            // 
             // FrmVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3525,5 +3550,7 @@
         private System.Windows.Forms.TextBox txtRutaImagenCliente;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox txtRutaAuto;
+        private System.Windows.Forms.Button btnBuscarAuto;
+        private System.Windows.Forms.Button btnBuscarCliente;
     }
 }

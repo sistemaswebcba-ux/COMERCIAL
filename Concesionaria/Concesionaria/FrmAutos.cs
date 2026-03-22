@@ -2416,5 +2416,18 @@ namespace Concesionaria
             tbCliente = fun.EliminarFila(tbCliente, "CodCliente", Cod);
             GrillaCliente.DataSource = tbCliente;
         }
+
+        private void btnBuscarCliente_Click(object sender, EventArgs e)
+        {
+            FrmBuscadorCliente frm = new FrmBuscadorCliente();
+            frm.FormClosing += new FormClosingEventHandler(FrmBuscarCliente);
+            frm.Show();
+        }
+
+        private void FrmBuscarCliente(object sender, FormClosingEventArgs e)
+        {
+            Int32 CodCliente = Convert.ToInt32(Principal.CodigoPrincipalAbm);
+            BuscarClientexCodigo(CodCliente);
+        }
     }
 }
