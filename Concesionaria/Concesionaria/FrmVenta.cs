@@ -59,7 +59,7 @@ namespace Concesionaria
             CargarVendedor();
             tbTarjeta = fun.CrearTabla("CodTarjeta;Nombre;Importe");
             OcultarVendedor(false);
-            txtFecha.Text = DateTime.Now.ToShortDateString();
+            dpFecha.Value = DateTime.Now;
             cPapeles papel = new cPapeles();
             DataTable tbPapeles = papel.GetPapeles();
             ListaPapeles.DataSource = tbPapeles;
@@ -487,11 +487,7 @@ namespace Concesionaria
         private void btnCalcularCuotas_Click(object sender, EventArgs e)
         {
             Clases.cFunciones fun = new Clases.cFunciones();
-            if (fun.ValidarFecha(txtFecha.Text) == false)
-            {
-                MessageBox.Show("Debe ingresar una fecha válida", Clases.cMensaje.Mensaje());
-                return;
-            }
+          
             int n = 2;
             int x = 4;
             double r = Math.Pow(x, n);
@@ -550,7 +546,7 @@ namespace Concesionaria
             ValorCuota = CapitalConInteres / Cuotas;
             Int32 ValorCuotaEntero = Convert.ToInt32(ValorCuota);
             Int32 ValorCuotaSinInteres = Convert.ToInt32(Capital / Cuotas);
-            DateTime FechaVencimiento = Convert.ToDateTime(txtFecha.Text);
+            DateTime FechaVencimiento = dpFecha.Value;
             DataTable tcuotas = new DataTable();
             tcuotas.Columns.Add("Cuota");
             tcuotas.Columns.Add("Importe");
@@ -718,6 +714,7 @@ namespace Concesionaria
             {
                 return;
             }
+            txtFecha.Text = dpFecha.Value.ToShortDateString();
             Clases.cVenta objVenta = new Clases.cVenta();
             double GastosTotalxAuto = objVenta.GetCostosTotalesxCodStock(Convert.ToInt32(txtCodStock.Text));
             SqlConnection con = new SqlConnection();
@@ -752,7 +749,7 @@ namespace Concesionaria
 
                 //saco el auto del stock
                 string sqlStock = "update StockAuto";
-                sqlStock = sqlStock + " set FechaBaja =" + "'" + txtFecha.Text + "'";
+                sqlStock = sqlStock + " set FechaBaja =" + "'" + dpFecha.Value.ToShortDateString() + "'";
                 sqlStock = sqlStock + " where CodAuto =" + txtCodAuto.Text;
                 Comand.CommandText = sqlStock;
                 Comand.ExecuteNonQuery();
@@ -772,7 +769,7 @@ namespace Concesionaria
                             string AutoPartePago = txtPatente.Text + " " + txtDescripcion.Text;
                             sqlInsertStock = "insert into StockAuto(CodAuto,FechaAlta,CodCliente,CodUsuario,ImporteCompra,DescripcionAutoPartePago)";
                             sqlInsertStock = sqlInsertStock + " values (" + codAuto.ToString();
-                            sqlInsertStock = sqlInsertStock + "," + "'" + txtFecha.Text + "'";
+                            sqlInsertStock = sqlInsertStock + "," + "'" + dpFecha.Value.ToShortDateString() + "'";
                             sqlInsertStock = sqlInsertStock + "," + txtCodCLiente.Text;
                             sqlInsertStock = sqlInsertStock + "," + Principal.CodUsuarioLogueado.ToString();
                             sqlInsertStock = sqlInsertStock + "," + fun.ToDouble(ImporteCompra).ToString();
@@ -943,7 +940,7 @@ namespace Concesionaria
                             sqlCheque = sqlCheque + "values (" + CodVenta.ToString();
                             sqlCheque = sqlCheque + "," + "'" + GrillaCheques.Rows[j].Cells[0].Value.ToString() + "'";
                             sqlCheque = sqlCheque + "," + fun.ToDouble(sImporteCheque);
-                            sqlCheque = sqlCheque + "," + "'" + txtFecha.Text + "'";
+                            sqlCheque = sqlCheque + "," + "'" + dpFecha.Value.ToShortDateString () + "'";
                             sqlCheque = sqlCheque + "," + "'" + GrillaCheques.Rows[j].Cells[2].Value.ToString() + "'";
                             sqlCheque = sqlCheque + "," + txtCodCLiente.Text;
                             sqlCheque = sqlCheque + "," + CmbBanco.SelectedValue;
@@ -978,7 +975,7 @@ namespace Concesionaria
                             sqlCobranza = "Insert into Cobranza(CodVenta,Importe,Fecha,CodAuto,CodCliente,FechaCompromiso,ImportePagado,Saldo,Cuota)";
                             sqlCobranza = sqlCobranza + " values (" + CodVenta.ToString();
                             sqlCobranza = sqlCobranza + "," + ImporteCobranzaCuota.ToString();
-                            sqlCobranza = sqlCobranza + "," + "'" + txtFecha.Text + "'";
+                            sqlCobranza = sqlCobranza + "," + "'" + dpFecha.Value.ToShortDateString() + "'";
                             sqlCobranza = sqlCobranza + "," + txtCodAuto.Text;
                             sqlCobranza = sqlCobranza + "," + txtCodCLiente.Text;
                             sqlCobranza = sqlCobranza + "," + "'" + FechaCompromisoPago + "'";
@@ -1006,7 +1003,7 @@ namespace Concesionaria
                     sqlGastosPagar = sqlGastosPagar + ",Fecha,Importe,CodVenta,CodStock)";
                     sqlGastosPagar = sqlGastosPagar + "values (" + txtCodAuto.Text;
                     sqlGastosPagar = sqlGastosPagar + "," + "'" + sDescripcion + "'";
-                    sqlGastosPagar = sqlGastosPagar + "," + "'" + txtFecha.Text + "'";
+                    sqlGastosPagar = sqlGastosPagar + "," + "'" + dpFecha.Value.ToShortDateString () + "'";
                     sqlGastosPagar = sqlGastosPagar + "," + func.ToDouble(sImporte);
                     sqlGastosPagar = sqlGastosPagar + "," + CodVenta.ToString();
                     sqlGastosPagar = sqlGastosPagar + "," + CodStock.ToString();
@@ -1029,7 +1026,7 @@ namespace Concesionaria
                     sqlGastosPagar = sqlGastosPagar + ",Fecha,Importe,CodStock,CodVenta)";
                     sqlGastosPagar = sqlGastosPagar + "values (" + sCodAuto;
                     sqlGastosPagar = sqlGastosPagar + "," + "'" + Descripcion + "'";
-                    sqlGastosPagar = sqlGastosPagar + "," + "'" + txtFecha.Text + "'";
+                    sqlGastosPagar = sqlGastosPagar + "," + "'" + dpFecha.Value.ToShortDateString () + "'";
                     sqlGastosPagar = sqlGastosPagar + "," + func.ToDouble(Importe);
                     sqlGastosPagar = sqlGastosPagar + "," + CodStock.ToString();
                     sqlGastosPagar = sqlGastosPagar + "," + CodVenta.ToString();
@@ -2736,45 +2733,22 @@ namespace Concesionaria
 
         private void btnGrabarVendedor_Click(object sender, EventArgs e)
         {
-            if (txtNombreVen.Text == "")
-            {
-                MessageBox.Show("Debe ingresar un nombre de vendedor", Clases.cMensaje.Mensaje());
-                return;
-            }
-
-            if (txtApellidoVend.Text == "")
-            {
-                MessageBox.Show("Debe ingresar un apellido de vendedor", Clases.cMensaje.Mensaje());
-                return;
-            }
-            string Ape = txtApellidoVend.Text.ToUpper();
-            string Nom = txtNombreVen.Text.ToUpper();
-            Clases.cVendedor ven = new Clases.cVendedor();
-            ven.GrabarVendedor(Ape, Nom);
-            Int32 CodVendedor = ven.GetMaxCodVendedor();
-            CargarVendedor();
-            CmbVendedor.SelectedValue = CodVendedor.ToString();
-            OcultarVendedor(false);
+           
         }
 
         private void OcultarVendedor(Boolean Op)
         {
-            lblNombreVendedor.Visible = Op;
-            lblApellidoVendedor.Visible = Op;
-            txtNombreVen.Visible = Op;
-            txtApellidoVend.Visible = Op;
-            btnGrabarVendedor.Visible = Op;
-            btnCancelarVendedor.Visible = Op;
+            
         }
 
         private void btnCancelarVendedor_Click(object sender, EventArgs e)
         {
-            OcultarVendedor(false);
+           
         }
 
         private void btnAgregarVendedor_Click(object sender, EventArgs e)
         {
-            OcultarVendedor(true);
+           
         }
 
         private void BtnAgregarCheque_Click(object sender, EventArgs e)
@@ -3770,7 +3744,7 @@ namespace Concesionaria
                 return;
             }
 
-
+            txtFecha.Text = dpFecha.Value.ToShortDateString();
             Clases.cVenta objVenta = new Clases.cVenta();
             double GastosTotalxAuto = objVenta.GetCostosTotalesxCodStock(Convert.ToInt32(txtCodStock.Text));
             SqlConnection con = new SqlConnection();

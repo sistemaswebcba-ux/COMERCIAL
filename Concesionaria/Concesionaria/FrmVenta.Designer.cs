@@ -32,15 +32,14 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.btnBuscarAuto = new System.Windows.Forms.Button();
             this.txtRutaAuto = new System.Windows.Forms.TextBox();
             this.BtnVerFoto = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.btnAbrirPreVenta = new System.Windows.Forms.Button();
             this.txtCodPreVenta = new System.Windows.Forms.TextBox();
             this.btnVerDetalleStock = new System.Windows.Forms.Button();
-            this.label61 = new System.Windows.Forms.Label();
             this.txtExTitular = new System.Windows.Forms.TextBox();
-            this.txtFecha = new System.Windows.Forms.MaskedTextBox();
             this.label57 = new System.Windows.Forms.Label();
             this.txtChasis = new System.Windows.Forms.TextBox();
             this.txtMotor = new System.Windows.Forms.TextBox();
@@ -72,6 +71,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button5 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnBuscarCliente = new System.Windows.Forms.Button();
             this.txtRutaImagenCliente = new System.Windows.Forms.TextBox();
             this.imgFotoCliente = new System.Windows.Forms.PictureBox();
             this.btnSubirFotoCliente = new System.Windows.Forms.Button();
@@ -123,18 +123,6 @@
             this.label39 = new System.Windows.Forms.Label();
             this.bnAgegargastoTranasferencia = new System.Windows.Forms.Button();
             this.btnAgregarGastoTransferencia = new System.Windows.Forms.Button();
-            this.tabPage15 = new System.Windows.Forms.TabPage();
-            this.txtComisionVendedor = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.lblApellidoVendedor = new System.Windows.Forms.Label();
-            this.lblNombreVendedor = new System.Windows.Forms.Label();
-            this.txtApellidoVend = new System.Windows.Forms.TextBox();
-            this.txtNombreVen = new System.Windows.Forms.TextBox();
-            this.label55 = new System.Windows.Forms.Label();
-            this.CmbVendedor = new System.Windows.Forms.ComboBox();
-            this.btnCancelarVendedor = new System.Windows.Forms.Button();
-            this.btnGrabarVendedor = new System.Windows.Forms.Button();
-            this.btnAgregarVendedor = new System.Windows.Forms.Button();
             this.Garantías = new System.Windows.Forms.TabPage();
             this.button3 = new System.Windows.Forms.Button();
             this.GrillaGarantias = new System.Windows.Forms.DataGridView();
@@ -303,8 +291,12 @@
             this.btnGrabar = new System.Windows.Forms.Button();
             this.btnAnular = new System.Windows.Forms.Button();
             this.btnGrabarPreVenta = new System.Windows.Forms.Button();
-            this.btnBuscarAuto = new System.Windows.Forms.Button();
-            this.btnBuscarCliente = new System.Windows.Forms.Button();
+            this.label55 = new System.Windows.Forms.Label();
+            this.CmbVendedor = new System.Windows.Forms.ComboBox();
+            this.txtFecha = new System.Windows.Forms.MaskedTextBox();
+            this.dpFecha = new System.Windows.Forms.DateTimePicker();
+            this.txtComisionVendedor = new System.Windows.Forms.TextBox();
+            this.label29 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -316,7 +308,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.Grilla)).BeginInit();
             this.tabPage12.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaGastos)).BeginInit();
-            this.tabPage15.SuspendLayout();
             this.Garantías.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaGarantias)).BeginInit();
             this.tabPage8.SuspendLayout();
@@ -355,7 +346,6 @@
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage12);
-            this.tabControl1.Controls.Add(this.tabPage15);
             this.tabControl1.Controls.Add(this.Garantías);
             this.tabControl1.Controls.Add(this.tabPage8);
             this.tabControl1.Controls.Add(this.tabPage18);
@@ -380,6 +370,11 @@
             // groupBox2
             // 
             this.groupBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
+            this.groupBox2.Controls.Add(this.txtComisionVendedor);
+            this.groupBox2.Controls.Add(this.label29);
+            this.groupBox2.Controls.Add(this.dpFecha);
+            this.groupBox2.Controls.Add(this.label55);
+            this.groupBox2.Controls.Add(this.CmbVendedor);
             this.groupBox2.Controls.Add(this.btnBuscarAuto);
             this.groupBox2.Controls.Add(this.txtRutaAuto);
             this.groupBox2.Controls.Add(this.BtnVerFoto);
@@ -387,7 +382,6 @@
             this.groupBox2.Controls.Add(this.btnAbrirPreVenta);
             this.groupBox2.Controls.Add(this.txtCodPreVenta);
             this.groupBox2.Controls.Add(this.btnVerDetalleStock);
-            this.groupBox2.Controls.Add(this.label61);
             this.groupBox2.Controls.Add(this.txtExTitular);
             this.groupBox2.Controls.Add(this.txtFecha);
             this.groupBox2.Controls.Add(this.label57);
@@ -421,14 +415,25 @@
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(6, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(918, 165);
+            this.groupBox2.Size = new System.Drawing.Size(854, 165);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
+            // btnBuscarAuto
+            // 
+            this.btnBuscarAuto.Image = global::Concesionaria.Properties.Resources.carpeta;
+            this.btnBuscarAuto.Location = new System.Drawing.Point(194, 21);
+            this.btnBuscarAuto.Name = "btnBuscarAuto";
+            this.btnBuscarAuto.Size = new System.Drawing.Size(40, 27);
+            this.btnBuscarAuto.TabIndex = 65;
+            this.btnBuscarAuto.UseVisualStyleBackColor = true;
+            this.btnBuscarAuto.Click += new System.EventHandler(this.btnBuscarAuto_Click);
+            // 
             // txtRutaAuto
             // 
-            this.txtRutaAuto.Location = new System.Drawing.Point(408, 6);
+            this.txtRutaAuto.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.txtRutaAuto.Location = new System.Drawing.Point(295, 18);
             this.txtRutaAuto.Name = "txtRutaAuto";
             this.txtRutaAuto.Size = new System.Drawing.Size(50, 22);
             this.txtRutaAuto.TabIndex = 62;
@@ -448,7 +453,7 @@
             // button4
             // 
             this.button4.Image = global::Concesionaria.Properties.Resources.email;
-            this.button4.Location = new System.Drawing.Point(806, 133);
+            this.button4.Location = new System.Drawing.Point(814, 76);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(34, 28);
             this.button4.TabIndex = 60;
@@ -458,7 +463,7 @@
             // btnAbrirPreVenta
             // 
             this.btnAbrirPreVenta.Image = global::Concesionaria.Properties.Resources.carpeta;
-            this.btnAbrirPreVenta.Location = new System.Drawing.Point(763, 133);
+            this.btnAbrirPreVenta.Location = new System.Drawing.Point(771, 77);
             this.btnAbrirPreVenta.Name = "btnAbrirPreVenta";
             this.btnAbrirPreVenta.Size = new System.Drawing.Size(34, 28);
             this.btnAbrirPreVenta.TabIndex = 45;
@@ -467,7 +472,8 @@
             // 
             // txtCodPreVenta
             // 
-            this.txtCodPreVenta.Location = new System.Drawing.Point(386, 19);
+            this.txtCodPreVenta.BackColor = System.Drawing.SystemColors.HotTrack;
+            this.txtCodPreVenta.Location = new System.Drawing.Point(311, 18);
             this.txtCodPreVenta.Name = "txtCodPreVenta";
             this.txtCodPreVenta.Size = new System.Drawing.Size(34, 22);
             this.txtCodPreVenta.TabIndex = 44;
@@ -476,44 +482,26 @@
             // btnVerDetalleStock
             // 
             this.btnVerDetalleStock.Image = global::Concesionaria.Properties.Resources.car_add;
-            this.btnVerDetalleStock.Location = new System.Drawing.Point(723, 133);
+            this.btnVerDetalleStock.Location = new System.Drawing.Point(730, 79);
             this.btnVerDetalleStock.Name = "btnVerDetalleStock";
             this.btnVerDetalleStock.Size = new System.Drawing.Size(34, 28);
             this.btnVerDetalleStock.TabIndex = 43;
             this.btnVerDetalleStock.UseVisualStyleBackColor = true;
             this.btnVerDetalleStock.Click += new System.EventHandler(this.btnVerDetalleStock_Click);
             // 
-            // label61
-            // 
-            this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(445, 50);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(57, 16);
-            this.label61.TabIndex = 42;
-            this.label61.Text = "Ex titular";
-            // 
             // txtExTitular
             // 
             this.txtExTitular.BackColor = System.Drawing.SystemColors.Control;
-            this.txtExTitular.Location = new System.Drawing.Point(537, 50);
+            this.txtExTitular.Location = new System.Drawing.Point(88, 79);
             this.txtExTitular.Name = "txtExTitular";
             this.txtExTitular.ReadOnly = true;
-            this.txtExTitular.Size = new System.Drawing.Size(303, 22);
+            this.txtExTitular.Size = new System.Drawing.Size(341, 22);
             this.txtExTitular.TabIndex = 41;
-            // 
-            // txtFecha
-            // 
-            this.txtFecha.Location = new System.Drawing.Point(749, 109);
-            this.txtFecha.Mask = "00/00/0000";
-            this.txtFecha.Name = "txtFecha";
-            this.txtFecha.Size = new System.Drawing.Size(91, 22);
-            this.txtFecha.TabIndex = 40;
-            this.txtFecha.ValidatingType = typeof(System.DateTime);
             // 
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(697, 112);
+            this.label57.Location = new System.Drawing.Point(694, 49);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(46, 16);
             this.label57.TabIndex = 39;
@@ -522,23 +510,23 @@
             // txtChasis
             // 
             this.txtChasis.BackColor = System.Drawing.SystemColors.Control;
-            this.txtChasis.Location = new System.Drawing.Point(709, 83);
+            this.txtChasis.Location = new System.Drawing.Point(246, 137);
             this.txtChasis.Name = "txtChasis";
-            this.txtChasis.Size = new System.Drawing.Size(131, 22);
+            this.txtChasis.Size = new System.Drawing.Size(183, 22);
             this.txtChasis.TabIndex = 38;
             // 
             // txtMotor
             // 
             this.txtMotor.BackColor = System.Drawing.SystemColors.Control;
-            this.txtMotor.Location = new System.Drawing.Point(541, 80);
+            this.txtMotor.Location = new System.Drawing.Point(88, 132);
             this.txtMotor.Name = "txtMotor";
-            this.txtMotor.Size = new System.Drawing.Size(107, 22);
+            this.txtMotor.Size = new System.Drawing.Size(97, 22);
             this.txtMotor.TabIndex = 37;
             // 
             // label54
             // 
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(654, 86);
+            this.label54.Location = new System.Drawing.Point(191, 140);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(49, 16);
             this.label54.TabIndex = 36;
@@ -547,7 +535,7 @@
             // label53
             // 
             this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(442, 86);
+            this.label53.Location = new System.Drawing.Point(19, 135);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(42, 16);
             this.label53.TabIndex = 35;
@@ -556,7 +544,7 @@
             // BtnVerCostoAuto
             // 
             this.BtnVerCostoAuto.Image = global::Concesionaria.Properties.Resources.Linterna;
-            this.BtnVerCostoAuto.Location = new System.Drawing.Point(686, 133);
+            this.BtnVerCostoAuto.Location = new System.Drawing.Point(686, 78);
             this.BtnVerCostoAuto.Name = "BtnVerCostoAuto";
             this.BtnVerCostoAuto.Size = new System.Drawing.Size(34, 28);
             this.BtnVerCostoAuto.TabIndex = 34;
@@ -566,17 +554,16 @@
             // txtImporteCompra
             // 
             this.txtImporteCompra.BackColor = System.Drawing.SystemColors.Control;
-            this.txtImporteCompra.Location = new System.Drawing.Point(542, 140);
+            this.txtImporteCompra.Location = new System.Drawing.Point(542, 80);
             this.txtImporteCompra.Name = "txtImporteCompra";
             this.txtImporteCompra.ReadOnly = true;
             this.txtImporteCompra.Size = new System.Drawing.Size(116, 22);
             this.txtImporteCompra.TabIndex = 33;
-            this.txtImporteCompra.Visible = false;
             // 
             // lblImporteCompra
             // 
             this.lblImporteCompra.AutoSize = true;
-            this.lblImporteCompra.Location = new System.Drawing.Point(440, 139);
+            this.lblImporteCompra.Location = new System.Drawing.Point(440, 83);
             this.lblImporteCompra.Name = "lblImporteCompra";
             this.lblImporteCompra.Size = new System.Drawing.Size(43, 16);
             this.lblImporteCompra.TabIndex = 32;
@@ -586,27 +573,29 @@
             // button1
             // 
             this.button1.Image = global::Concesionaria.Properties.Resources.page_add;
-            this.button1.Location = new System.Drawing.Point(365, 47);
+            this.button1.Location = new System.Drawing.Point(305, 19);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(40, 28);
             this.button1.TabIndex = 31;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // btnAgregarCiudad
             // 
             this.btnAgregarCiudad.Image = global::Concesionaria.Properties.Resources.page_add;
-            this.btnAgregarCiudad.Location = new System.Drawing.Point(365, 105);
+            this.btnAgregarCiudad.Location = new System.Drawing.Point(279, 15);
             this.btnAgregarCiudad.Name = "btnAgregarCiudad";
             this.btnAgregarCiudad.Size = new System.Drawing.Size(40, 28);
             this.btnAgregarCiudad.TabIndex = 30;
             this.btnAgregarCiudad.UseVisualStyleBackColor = true;
+            this.btnAgregarCiudad.Visible = false;
             this.btnAgregarCiudad.Click += new System.EventHandler(this.btnAgregarCiudad_Click);
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(15, 139);
+            this.label15.Location = new System.Drawing.Point(440, 112);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(102, 16);
             this.label15.TabIndex = 29;
@@ -614,6 +603,7 @@
             // 
             // txtCodStock
             // 
+            this.txtCodStock.BackColor = System.Drawing.Color.Wheat;
             this.txtCodStock.Location = new System.Drawing.Point(329, 18);
             this.txtCodStock.Name = "txtCodStock";
             this.txtCodStock.Size = new System.Drawing.Size(30, 22);
@@ -623,9 +613,9 @@
             // txtPrecioVenta
             // 
             this.txtPrecioVenta.BackColor = System.Drawing.SystemColors.Control;
-            this.txtPrecioVenta.Location = new System.Drawing.Point(113, 140);
+            this.txtPrecioVenta.Location = new System.Drawing.Point(542, 107);
             this.txtPrecioVenta.Name = "txtPrecioVenta";
-            this.txtPrecioVenta.Size = new System.Drawing.Size(246, 22);
+            this.txtPrecioVenta.Size = new System.Drawing.Size(306, 22);
             this.txtPrecioVenta.TabIndex = 7;
             this.txtPrecioVenta.ValidatingType = typeof(int);
             this.txtPrecioVenta.TextChanged += new System.EventHandler(this.txtPrecioVenta_TextChanged);
@@ -634,16 +624,16 @@
             // 
             // txtCodAuto
             // 
-            this.txtCodAuto.Location = new System.Drawing.Point(370, 81);
+            this.txtCodAuto.Location = new System.Drawing.Point(370, 15);
             this.txtCodAuto.Name = "txtCodAuto";
-            this.txtCodAuto.Size = new System.Drawing.Size(50, 22);
+            this.txtCodAuto.Size = new System.Drawing.Size(10, 22);
             this.txtCodAuto.TabIndex = 14;
             this.txtCodAuto.Visible = false;
             // 
             // radioConcesion
             // 
             this.radioConcesion.AutoSize = true;
-            this.radioConcesion.Location = new System.Drawing.Point(260, 80);
+            this.radioConcesion.Location = new System.Drawing.Point(562, 49);
             this.radioConcesion.Name = "radioConcesion";
             this.radioConcesion.Size = new System.Drawing.Size(90, 20);
             this.radioConcesion.TabIndex = 13;
@@ -654,7 +644,7 @@
             // 
             this.radioPropio.AutoSize = true;
             this.radioPropio.Checked = true;
-            this.radioPropio.Location = new System.Drawing.Point(188, 80);
+            this.radioPropio.Location = new System.Drawing.Point(443, 51);
             this.radioPropio.Name = "radioPropio";
             this.radioPropio.Size = new System.Drawing.Size(66, 20);
             this.radioPropio.TabIndex = 12;
@@ -666,15 +656,15 @@
             // 
             this.cmbCiudad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCiudad.FormattingEnabled = true;
-            this.cmbCiudad.Location = new System.Drawing.Point(113, 109);
+            this.cmbCiudad.Location = new System.Drawing.Point(542, 21);
             this.cmbCiudad.Name = "cmbCiudad";
-            this.cmbCiudad.Size = new System.Drawing.Size(246, 24);
+            this.cmbCiudad.Size = new System.Drawing.Size(298, 24);
             this.cmbCiudad.TabIndex = 6;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 109);
+            this.label5.Location = new System.Drawing.Point(445, 21);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 16);
             this.label5.TabIndex = 10;
@@ -683,15 +673,15 @@
             // txtKms
             // 
             this.txtKms.BackColor = System.Drawing.SystemColors.Control;
-            this.txtKms.Location = new System.Drawing.Point(542, 111);
+            this.txtKms.Location = new System.Drawing.Point(246, 108);
             this.txtKms.Name = "txtKms";
-            this.txtKms.Size = new System.Drawing.Size(100, 22);
+            this.txtKms.Size = new System.Drawing.Size(183, 22);
             this.txtKms.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(440, 115);
+            this.label4.Location = new System.Drawing.Point(191, 111);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 16);
             this.label4.TabIndex = 8;
@@ -700,7 +690,7 @@
             // txtAnio
             // 
             this.txtAnio.BackColor = System.Drawing.SystemColors.Control;
-            this.txtAnio.Location = new System.Drawing.Point(113, 80);
+            this.txtAnio.Location = new System.Drawing.Point(88, 105);
             this.txtAnio.MaxLength = 4;
             this.txtAnio.Name = "txtAnio";
             this.txtAnio.Size = new System.Drawing.Size(60, 22);
@@ -709,7 +699,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 80);
+            this.label3.Location = new System.Drawing.Point(19, 112);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 16);
             this.label3.TabIndex = 6;
@@ -717,28 +707,29 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.BackColor = System.Drawing.SystemColors.Control;
-            this.txtDescripcion.Location = new System.Drawing.Point(537, 21);
+            this.txtDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.txtDescripcion.Location = new System.Drawing.Point(332, 19);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(303, 22);
+            this.txtDescripcion.Size = new System.Drawing.Size(24, 22);
             this.txtDescripcion.TabIndex = 3;
+            this.txtDescripcion.Visible = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(442, 24);
+            this.label2.Location = new System.Drawing.Point(16, 82);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(80, 16);
+            this.label2.Size = new System.Drawing.Size(54, 16);
             this.label2.TabIndex = 4;
-            this.label2.Text = "Descripción";
+            this.label2.Text = "Modelo";
             // 
             // cmbMarca
             // 
             this.cmbMarca.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMarca.FormattingEnabled = true;
-            this.cmbMarca.Location = new System.Drawing.Point(113, 50);
+            this.cmbMarca.Location = new System.Drawing.Point(88, 51);
             this.cmbMarca.Name = "cmbMarca";
-            this.cmbMarca.Size = new System.Drawing.Size(246, 24);
+            this.cmbMarca.Size = new System.Drawing.Size(341, 24);
             this.cmbMarca.TabIndex = 2;
             // 
             // label1
@@ -754,7 +745,7 @@
             // 
             this.txtPatente.BackColor = System.Drawing.SystemColors.Control;
             this.txtPatente.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtPatente.Location = new System.Drawing.Point(113, 21);
+            this.txtPatente.Location = new System.Drawing.Point(88, 24);
             this.txtPatente.Name = "txtPatente";
             this.txtPatente.Size = new System.Drawing.Size(100, 22);
             this.txtPatente.TabIndex = 1;
@@ -833,6 +824,16 @@
             this.groupBox1.Size = new System.Drawing.Size(826, 179);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
+            // 
+            // btnBuscarCliente
+            // 
+            this.btnBuscarCliente.Image = global::Concesionaria.Properties.Resources.carpeta;
+            this.btnBuscarCliente.Location = new System.Drawing.Point(373, 1);
+            this.btnBuscarCliente.Name = "btnBuscarCliente";
+            this.btnBuscarCliente.Size = new System.Drawing.Size(40, 27);
+            this.btnBuscarCliente.TabIndex = 76;
+            this.btnBuscarCliente.UseVisualStyleBackColor = true;
+            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
             // 
             // txtRutaImagenCliente
             // 
@@ -1312,126 +1313,6 @@
             this.btnAgregarGastoTransferencia.TabIndex = 33;
             this.btnAgregarGastoTransferencia.UseVisualStyleBackColor = true;
             this.btnAgregarGastoTransferencia.Click += new System.EventHandler(this.btnAgregarGastoTransferencia_Click);
-            // 
-            // tabPage15
-            // 
-            this.tabPage15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.tabPage15.Controls.Add(this.txtComisionVendedor);
-            this.tabPage15.Controls.Add(this.label29);
-            this.tabPage15.Controls.Add(this.lblApellidoVendedor);
-            this.tabPage15.Controls.Add(this.lblNombreVendedor);
-            this.tabPage15.Controls.Add(this.txtApellidoVend);
-            this.tabPage15.Controls.Add(this.txtNombreVen);
-            this.tabPage15.Controls.Add(this.label55);
-            this.tabPage15.Controls.Add(this.CmbVendedor);
-            this.tabPage15.Controls.Add(this.btnCancelarVendedor);
-            this.tabPage15.Controls.Add(this.btnGrabarVendedor);
-            this.tabPage15.Controls.Add(this.btnAgregarVendedor);
-            this.tabPage15.Location = new System.Drawing.Point(4, 25);
-            this.tabPage15.Name = "tabPage15";
-            this.tabPage15.Size = new System.Drawing.Size(863, 168);
-            this.tabPage15.TabIndex = 4;
-            this.tabPage15.Text = "Vendedor";
-            // 
-            // txtComisionVendedor
-            // 
-            this.txtComisionVendedor.Location = new System.Drawing.Point(480, 33);
-            this.txtComisionVendedor.Name = "txtComisionVendedor";
-            this.txtComisionVendedor.Size = new System.Drawing.Size(161, 22);
-            this.txtComisionVendedor.TabIndex = 41;
-            this.txtComisionVendedor.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtComisionVendedor_KeyPress);
-            this.txtComisionVendedor.Leave += new System.EventHandler(this.txtComisionVendedor_Leave);
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(410, 32);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(64, 16);
-            this.label29.TabIndex = 40;
-            this.label29.Text = "Comisión";
-            // 
-            // lblApellidoVendedor
-            // 
-            this.lblApellidoVendedor.AutoSize = true;
-            this.lblApellidoVendedor.Location = new System.Drawing.Point(26, 91);
-            this.lblApellidoVendedor.Name = "lblApellidoVendedor";
-            this.lblApellidoVendedor.Size = new System.Drawing.Size(58, 16);
-            this.lblApellidoVendedor.TabIndex = 36;
-            this.lblApellidoVendedor.Text = "Apellido";
-            // 
-            // lblNombreVendedor
-            // 
-            this.lblNombreVendedor.AutoSize = true;
-            this.lblNombreVendedor.Location = new System.Drawing.Point(26, 63);
-            this.lblNombreVendedor.Name = "lblNombreVendedor";
-            this.lblNombreVendedor.Size = new System.Drawing.Size(57, 16);
-            this.lblNombreVendedor.TabIndex = 35;
-            this.lblNombreVendedor.Text = "Nombre";
-            // 
-            // txtApellidoVend
-            // 
-            this.txtApellidoVend.BackColor = System.Drawing.SystemColors.Control;
-            this.txtApellidoVend.Location = new System.Drawing.Point(106, 91);
-            this.txtApellidoVend.Name = "txtApellidoVend";
-            this.txtApellidoVend.Size = new System.Drawing.Size(246, 22);
-            this.txtApellidoVend.TabIndex = 34;
-            // 
-            // txtNombreVen
-            // 
-            this.txtNombreVen.BackColor = System.Drawing.SystemColors.Control;
-            this.txtNombreVen.Location = new System.Drawing.Point(106, 63);
-            this.txtNombreVen.Name = "txtNombreVen";
-            this.txtNombreVen.Size = new System.Drawing.Size(246, 22);
-            this.txtNombreVen.TabIndex = 33;
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(22, 30);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(68, 16);
-            this.label55.TabIndex = 8;
-            this.label55.Text = "Vendedor";
-            // 
-            // CmbVendedor
-            // 
-            this.CmbVendedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbVendedor.FormattingEnabled = true;
-            this.CmbVendedor.Location = new System.Drawing.Point(106, 30);
-            this.CmbVendedor.Name = "CmbVendedor";
-            this.CmbVendedor.Size = new System.Drawing.Size(246, 24);
-            this.CmbVendedor.TabIndex = 7;
-            // 
-            // btnCancelarVendedor
-            // 
-            this.btnCancelarVendedor.Image = global::Concesionaria.Properties.Resources.cancel;
-            this.btnCancelarVendedor.Location = new System.Drawing.Point(152, 119);
-            this.btnCancelarVendedor.Name = "btnCancelarVendedor";
-            this.btnCancelarVendedor.Size = new System.Drawing.Size(40, 28);
-            this.btnCancelarVendedor.TabIndex = 38;
-            this.btnCancelarVendedor.UseVisualStyleBackColor = true;
-            this.btnCancelarVendedor.Click += new System.EventHandler(this.btnCancelarVendedor_Click);
-            // 
-            // btnGrabarVendedor
-            // 
-            this.btnGrabarVendedor.Image = global::Concesionaria.Properties.Resources.add;
-            this.btnGrabarVendedor.Location = new System.Drawing.Point(106, 119);
-            this.btnGrabarVendedor.Name = "btnGrabarVendedor";
-            this.btnGrabarVendedor.Size = new System.Drawing.Size(40, 28);
-            this.btnGrabarVendedor.TabIndex = 37;
-            this.btnGrabarVendedor.UseVisualStyleBackColor = true;
-            this.btnGrabarVendedor.Click += new System.EventHandler(this.btnGrabarVendedor_Click);
-            // 
-            // btnAgregarVendedor
-            // 
-            this.btnAgregarVendedor.Image = global::Concesionaria.Properties.Resources.page_add;
-            this.btnAgregarVendedor.Location = new System.Drawing.Point(358, 27);
-            this.btnAgregarVendedor.Name = "btnAgregarVendedor";
-            this.btnAgregarVendedor.Size = new System.Drawing.Size(40, 28);
-            this.btnAgregarVendedor.TabIndex = 31;
-            this.btnAgregarVendedor.UseVisualStyleBackColor = true;
-            this.btnAgregarVendedor.Click += new System.EventHandler(this.btnAgregarVendedor_Click);
             // 
             // Garantías
             // 
@@ -3171,25 +3052,57 @@
             this.btnGrabarPreVenta.UseVisualStyleBackColor = true;
             this.btnGrabarPreVenta.Click += new System.EventHandler(this.btnGrabarPreVenta_Click);
             // 
-            // btnBuscarAuto
+            // label55
             // 
-            this.btnBuscarAuto.Image = global::Concesionaria.Properties.Resources.carpeta;
-            this.btnBuscarAuto.Location = new System.Drawing.Point(219, 16);
-            this.btnBuscarAuto.Name = "btnBuscarAuto";
-            this.btnBuscarAuto.Size = new System.Drawing.Size(40, 27);
-            this.btnBuscarAuto.TabIndex = 65;
-            this.btnBuscarAuto.UseVisualStyleBackColor = true;
-            this.btnBuscarAuto.Click += new System.EventHandler(this.btnBuscarAuto_Click);
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(440, 138);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(68, 16);
+            this.label55.TabIndex = 67;
+            this.label55.Text = "Vendedor";
             // 
-            // btnBuscarCliente
+            // CmbVendedor
             // 
-            this.btnBuscarCliente.Image = global::Concesionaria.Properties.Resources.carpeta;
-            this.btnBuscarCliente.Location = new System.Drawing.Point(373, 1);
-            this.btnBuscarCliente.Name = "btnBuscarCliente";
-            this.btnBuscarCliente.Size = new System.Drawing.Size(40, 27);
-            this.btnBuscarCliente.TabIndex = 76;
-            this.btnBuscarCliente.UseVisualStyleBackColor = true;
-            this.btnBuscarCliente.Click += new System.EventHandler(this.btnBuscarCliente_Click);
+            this.CmbVendedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbVendedor.FormattingEnabled = true;
+            this.CmbVendedor.Location = new System.Drawing.Point(542, 135);
+            this.CmbVendedor.Name = "CmbVendedor";
+            this.CmbVendedor.Size = new System.Drawing.Size(179, 24);
+            this.CmbVendedor.TabIndex = 66;
+            // 
+            // txtFecha
+            // 
+            this.txtFecha.Location = new System.Drawing.Point(395, 21);
+            this.txtFecha.Mask = "00/00/0000";
+            this.txtFecha.Name = "txtFecha";
+            this.txtFecha.Size = new System.Drawing.Size(34, 22);
+            this.txtFecha.TabIndex = 40;
+            this.txtFecha.ValidatingType = typeof(System.DateTime);
+            this.txtFecha.Visible = false;
+            // 
+            // dpFecha
+            // 
+            this.dpFecha.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpFecha.Location = new System.Drawing.Point(755, 46);
+            this.dpFecha.Name = "dpFecha";
+            this.dpFecha.Size = new System.Drawing.Size(85, 22);
+            this.dpFecha.TabIndex = 73;
+            // 
+            // txtComisionVendedor
+            // 
+            this.txtComisionVendedor.Location = new System.Drawing.Point(798, 137);
+            this.txtComisionVendedor.Name = "txtComisionVendedor";
+            this.txtComisionVendedor.Size = new System.Drawing.Size(50, 22);
+            this.txtComisionVendedor.TabIndex = 75;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(727, 140);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(64, 16);
+            this.label29.TabIndex = 74;
+            this.label29.Text = "Comisión";
             // 
             // FrmVenta
             // 
@@ -3224,8 +3137,6 @@
             this.tabPage12.ResumeLayout(false);
             this.tabPage12.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaGastos)).EndInit();
-            this.tabPage15.ResumeLayout(false);
-            this.tabPage15.PerformLayout();
             this.Garantías.ResumeLayout(false);
             this.Garantías.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.GrillaGarantias)).EndInit();
@@ -3437,16 +3348,6 @@
         private System.Windows.Forms.TextBox txtMotor;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Button btnNuevaBanco;
-        private System.Windows.Forms.TabPage tabPage15;
-        private System.Windows.Forms.Button btnAgregarVendedor;
-        private System.Windows.Forms.Label label55;
-        private System.Windows.Forms.ComboBox CmbVendedor;
-        private System.Windows.Forms.Button btnCancelarVendedor;
-        private System.Windows.Forms.Button btnGrabarVendedor;
-        private System.Windows.Forms.Label lblApellidoVendedor;
-        private System.Windows.Forms.Label lblNombreVendedor;
-        private System.Windows.Forms.TextBox txtApellidoVend;
-        private System.Windows.Forms.TextBox txtNombreVen;
         private System.Windows.Forms.TextBox txtColor2;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Button BtnAgregarCheque;
@@ -3456,17 +3357,13 @@
         private System.Windows.Forms.Label Gastos;
         private System.Windows.Forms.TextBox txtResumenGastos;
         private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.MaskedTextBox txtFecha;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.MaskedTextBox txtFechaCompromiso;
-        private System.Windows.Forms.TextBox txtComisionVendedor;
-        private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.ComboBox CmbTipoCombustible2;
         private System.Windows.Forms.TextBox txtExTitular;
-        private System.Windows.Forms.Label label61;
         private System.Windows.Forms.TabPage Garantías;
         private System.Windows.Forms.TextBox txtImporteGarantias;
         private System.Windows.Forms.Label label64;
@@ -3552,5 +3449,11 @@
         private System.Windows.Forms.TextBox txtRutaAuto;
         private System.Windows.Forms.Button btnBuscarAuto;
         private System.Windows.Forms.Button btnBuscarCliente;
+        private System.Windows.Forms.Label label55;
+        private System.Windows.Forms.ComboBox CmbVendedor;
+        private System.Windows.Forms.MaskedTextBox txtFecha;
+        private System.Windows.Forms.DateTimePicker dpFecha;
+        private System.Windows.Forms.TextBox txtComisionVendedor;
+        private System.Windows.Forms.Label label29;
     }
 }
