@@ -241,3 +241,4 @@ D:\PROGRAMACION 3\COMERCIAL\COMERCIAL\Concesionaria\Concesionaria\obj\x86\Debug\
 D:\PROGRAMACION 3\COMERCIAL\COMERCIAL\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.cache
 D:\PROGRAMACION 3\COMERCIAL\COMERCIAL\Concesionaria\Concesionaria\obj\x86\Debug\RdlCompile.compiled
 D:\PROGRAMACION 3\COMERCIAL\COMERCIAL\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmBuscadorCliente.resources
+D:\PROGRAMACION 3\COMERCIAL\COMERCIAL\Concesionaria\Concesionaria\obj\x86\Debug\Concesionaria.FrmAbmVendedor.resources

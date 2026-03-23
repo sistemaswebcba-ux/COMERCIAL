@@ -1,6 +1,6 @@
 ﻿namespace Concesionaria
 {
-    partial class FrmAbmBanco
+    partial class FrmAbmVendedor
     {
         /// <summary>
         /// Required designer variable.
@@ -28,11 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbmBanco));
-            this.Grupo = new System.Windows.Forms.GroupBox();
-            this.txtCodigo = new System.Windows.Forms.TextBox();
-            this.txt_Nombre = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAbmVendedor));
             this.BarraBotones = new System.Windows.Forms.ToolStrip();
             this.btnNuevo = new System.Windows.Forms.ToolStripButton();
             this.btnEditar = new System.Windows.Forms.ToolStripButton();
@@ -42,46 +38,15 @@
             this.btnAbrir = new System.Windows.Forms.ToolStripButton();
             this.btnImprimir = new System.Windows.Forms.ToolStripButton();
             this.btnSalir = new System.Windows.Forms.ToolStripButton();
-            this.Grupo.SuspendLayout();
+            this.Grupo = new System.Windows.Forms.GroupBox();
+            this.txt_Apellido = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtCodigo = new System.Windows.Forms.TextBox();
+            this.txt_Nombre = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.BarraBotones.SuspendLayout();
+            this.Grupo.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Grupo
-            // 
-            this.Grupo.Controls.Add(this.txtCodigo);
-            this.Grupo.Controls.Add(this.txt_Nombre);
-            this.Grupo.Controls.Add(this.label1);
-            this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Grupo.Location = new System.Drawing.Point(0, 41);
-            this.Grupo.Name = "Grupo";
-            this.Grupo.Size = new System.Drawing.Size(379, 76);
-            this.Grupo.TabIndex = 0;
-            this.Grupo.TabStop = false;
-            this.Grupo.Text = "Información del Banco";
-            // 
-            // txtCodigo
-            // 
-            this.txtCodigo.Location = new System.Drawing.Point(238, 0);
-            this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(57, 22);
-            this.txtCodigo.TabIndex = 2;
-            this.txtCodigo.Visible = false;
-            // 
-            // txt_Nombre
-            // 
-            this.txt_Nombre.Location = new System.Drawing.Point(59, 30);
-            this.txt_Nombre.Name = "txt_Nombre";
-            this.txt_Nombre.Size = new System.Drawing.Size(299, 22);
-            this.txt_Nombre.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(47, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Banco";
             // 
             // BarraBotones
             // 
@@ -97,8 +62,8 @@
             this.btnSalir});
             this.BarraBotones.Location = new System.Drawing.Point(0, 0);
             this.BarraBotones.Name = "BarraBotones";
-            this.BarraBotones.Size = new System.Drawing.Size(388, 39);
-            this.BarraBotones.TabIndex = 14;
+            this.BarraBotones.Size = new System.Drawing.Size(376, 39);
+            this.BarraBotones.TabIndex = 16;
             this.BarraBotones.Text = "toolStrip1";
             // 
             // btnNuevo
@@ -132,6 +97,7 @@
             this.btnEliminar.Size = new System.Drawing.Size(36, 36);
             this.btnEliminar.Text = "toolStripButton3";
             this.btnEliminar.ToolTipText = "Eliminar";
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnAceptar
             // 
@@ -183,24 +149,75 @@
             this.btnSalir.Text = "Salir";
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // FrmAbmBanco
+            // Grupo
+            // 
+            this.Grupo.Controls.Add(this.txt_Apellido);
+            this.Grupo.Controls.Add(this.label2);
+            this.Grupo.Controls.Add(this.txtCodigo);
+            this.Grupo.Controls.Add(this.txt_Nombre);
+            this.Grupo.Controls.Add(this.label1);
+            this.Grupo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Grupo.Location = new System.Drawing.Point(0, 54);
+            this.Grupo.Name = "Grupo";
+            this.Grupo.Size = new System.Drawing.Size(379, 99);
+            this.Grupo.TabIndex = 15;
+            this.Grupo.TabStop = false;
+            this.Grupo.Text = "Información del Vendedor";
+            // 
+            // txt_Apellido
+            // 
+            this.txt_Apellido.Location = new System.Drawing.Point(70, 61);
+            this.txt_Apellido.Name = "txt_Apellido";
+            this.txt_Apellido.Size = new System.Drawing.Size(295, 22);
+            this.txt_Apellido.TabIndex = 4;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 61);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(58, 16);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Apellido";
+            // 
+            // txtCodigo
+            // 
+            this.txtCodigo.Location = new System.Drawing.Point(238, 0);
+            this.txtCodigo.Name = "txtCodigo";
+            this.txtCodigo.Size = new System.Drawing.Size(57, 22);
+            this.txtCodigo.TabIndex = 2;
+            this.txtCodigo.Visible = false;
+            // 
+            // txt_Nombre
+            // 
+            this.txt_Nombre.Location = new System.Drawing.Point(69, 30);
+            this.txt_Nombre.Name = "txt_Nombre";
+            this.txt_Nombre.Size = new System.Drawing.Size(295, 22);
+            this.txt_Nombre.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(57, 16);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Nombre";
+            // 
+            // FrmAbmVendedor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(388, 124);
+            this.ClientSize = new System.Drawing.Size(376, 171);
             this.Controls.Add(this.BarraBotones);
             this.Controls.Add(this.Grupo);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
-            this.Name = "FrmAbmBanco";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Formulario de Bancos";
-            this.Load += new System.EventHandler(this.FrmAbmBanco_Load);
-            this.Grupo.ResumeLayout(false);
-            this.Grupo.PerformLayout();
+            this.Name = "FrmAbmVendedor";
+            this.Text = "Formulario de Vendedor";
+            this.Load += new System.EventHandler(this.FrmAbmVendedor_Load);
             this.BarraBotones.ResumeLayout(false);
             this.BarraBotones.PerformLayout();
+            this.Grupo.ResumeLayout(false);
+            this.Grupo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -208,9 +225,6 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox Grupo;
-        private System.Windows.Forms.TextBox txt_Nombre;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStrip BarraBotones;
         private System.Windows.Forms.ToolStripButton btnNuevo;
         private System.Windows.Forms.ToolStripButton btnEditar;
@@ -220,6 +234,11 @@
         private System.Windows.Forms.ToolStripButton btnAbrir;
         private System.Windows.Forms.ToolStripButton btnImprimir;
         private System.Windows.Forms.ToolStripButton btnSalir;
+        private System.Windows.Forms.GroupBox Grupo;
+        private System.Windows.Forms.TextBox txt_Apellido;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtCodigo;
+        private System.Windows.Forms.TextBox txt_Nombre;
+        private System.Windows.Forms.Label label1;
     }
 }

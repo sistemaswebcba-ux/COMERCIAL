@@ -10,22 +10,13 @@ using Concesionaria.Clases;
 
 namespace Concesionaria
 {
-    public partial class FrmAbmBanco : Form
+    public partial class FrmAbmVendedor : FrmBase
     {
-        public FrmAbmBanco()
+        public FrmAbmVendedor()
         {
             InitializeComponent();
         }
 
-        private void btnNuevo_Click(object sender, EventArgs e)
-        {
-            Botonera(2);
-            Clases.cFunciones fun = new Clases.cFunciones();
-            fun.LimpiarGenerico(this);
-            txtCodigo.Text = "";
-            Grupo.Enabled = true;
-
-        }
         private void Botonera(int Jugada)
         {
             switch (Jugada)
@@ -54,31 +45,48 @@ namespace Concesionaria
                     btnEliminar.Enabled = true;
                     btnAceptar.Enabled = false;
                     btnCancelar.Enabled = false;
-
-
                     break;
             }
+        }
 
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            Botonera(2);
+            Clases.cFunciones fun = new Clases.cFunciones();
+            fun.LimpiarGenerico(this);
+            txtCodigo.Text = "";
+            Grupo.Enabled = true;
+        }
 
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            Botonera(2);
+            Grupo.Enabled = true;
         }
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
+            if (txt_Nombre.Text =="")
+            {
+                MessageBox.Show("Debe ingresar un nombre ");
+                return;
+            }
+            
+            if (txt_Apellido.Text == "")
+            {
+                MessageBox.Show("Debe ingresar un apellido ");
+                return;
+            }
+
             Clases.cFunciones fun = new Clases.cFunciones();
             if (txtCodigo.Text == "")
-                fun.GuardarNuevoGenerico(this, "Banco");
+                fun.GuardarNuevoGenerico(this, "Vendedor");
             else
-                fun.ModificarGenerico(this, "Banco", "CodBanco", txtCodigo.Text);
+                fun.ModificarGenerico(this, "Vendedor", "CodVendedor", txtCodigo.Text);
             MessageBox.Show("Datos grabados Correctamente", Clases.cMensaje.Mensaje());
             Botonera(1);
             fun.LimpiarGenerico(this);
             txtCodigo.Text = "";
-            Grupo.Enabled = false;
-        }
-
-        private void FrmAbmBanco_Load(object sender, EventArgs e)
-        {
-            Botonera(1);
             Grupo.Enabled = false;
         }
 
@@ -87,10 +95,10 @@ namespace Concesionaria
             //nombre de los camposa buscar, se llaman igual que en la base de datos
             Principal.OpcionesdeBusqueda = "Nombre";
             //nombre de la tabla, 
-            Principal.TablaPrincipal = "Banco";
-            Principal.OpcionesColumnasGrilla = "CodBanco; Nombre";
+            Principal.TablaPrincipal = "Vendedor";
+            Principal.OpcionesColumnasGrilla = "CodVendedor; Nombre;Apellido";
             Principal.ColumnasVisibles = "0;1";
-            Principal.ColumnasAncho = "100;580";
+            Principal.ColumnasAncho = "100;290;290";
             FrmBuscadorGenerico form = new FrmBuscadorGenerico();
             form.FormClosing += new FormClosingEventHandler(form_FormClosing);
             form.ShowDialog();
@@ -108,18 +116,12 @@ namespace Concesionaria
                     txtCodigo.Text = Principal.CodigoPrincipalAbm.ToString();
 
                     if (Principal.CodigoPrincipalAbm != "")
-                        fun.CargarControles(this, "Banco", "CodBanco", txtCodigo.Text);
+                        fun.CargarControles(this, "Vendedor", "CodVendedor", txtCodigo.Text);
                     Grupo.Enabled = false;
                     return;
                 }
 
             }
-        }
-
-        private void btnEditar_Click(object sender, EventArgs e)
-        {
-            Botonera(2);
-            Grupo.Enabled = true;
         }
 
         private void btnCancelar_Click(object sender, EventArgs e)
@@ -131,9 +133,47 @@ namespace Concesionaria
             Grupo.Enabled = false;
         }
 
+        private void FrmAbmVendedor_Load(object sender, EventArgs e)
+        {
+            Botonera(1);
+            Grupo.Enabled = false;
+        }
+
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            string msj = "Confirma eliminar el Vendedor ";
+            var result = MessageBox.Show(msj, "Información",
+                                 MessageBoxButtons.YesNo,
+                                 MessageBoxIcon.Question);
+
+            // If the no button was pressed ...
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            Clases.cFunciones fun = new Clases.cFunciones();
+            try
+            {
+                fun.EliminarGenerico("Vendedor", "CodVendedor", txtCodigo.Text);
+                MessageBox.Show("El vendedor se ha eliminado de la base", Clases.cMensaje.Mensaje());
+                fun.LimpiarGenerico(this);
+                txtCodigo.Text = "";
+                Botonera(1);
+                Grupo.Enabled = false;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("El vendedor no se puede eliminar, tiene ventas asociadas"); 
+                
+            }
+           
+            
         }
     }
 }

@@ -735,6 +735,10 @@ namespace Concesionaria
             }
         }
 
-        
+        private void vendedorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAbmVendedor frm = new Concesionaria.FrmAbmVendedor();
+            frm.Show();
+        }
     }
 }

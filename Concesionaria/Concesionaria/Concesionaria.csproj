@@ -208,6 +208,12 @@
     <Compile Include="FrmAbmTarjeta.Designer.cs">
       <DependentUpon>FrmAbmTarjeta.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAbmVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmAbmVendedor.Designer.cs">
+      <DependentUpon>FrmAbmVendedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAlertas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -773,6 +779,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAbmTarjeta.resx">
       <DependentUpon>FrmAbmTarjeta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAbmVendedor.resx">
+      <DependentUpon>FrmAbmVendedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAlertas.resx">
       <DependentUpon>FrmAlertas.cs</DependentUpon>
