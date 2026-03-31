@@ -19,27 +19,19 @@ namespace Concesionaria
         private void FrmListadoCompra_Load(object sender, EventArgs e)
         {
             DateTime Fecha = DateTime.Now;
-            txtFechaHasta.Text = Fecha.ToShortDateString();
+            dpFechaHasta.Value = Fecha;
             Fecha = Fecha.AddMonths(-1);
-            txtFechaDesde.Text  = Fecha.ToShortDateString();
+            dpFechaDesde.Value   = Fecha;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             cFunciones fun = new cFunciones();
-            if (fun.ValidarFecha (txtFechaDesde.Text)==false)
-            {
-                Mensaje("La fecha desde es incorrecta");
-                return;
-            }
-             
-            if (fun.ValidarFecha(txtFechaHasta.Text) == false)
-            {
-                Mensaje("La fecha Hasta es incorrecta");
-                return;
-            }
-            DateTime FechaDesde = Convert.ToDateTime(txtFechaDesde.Text);
-            DateTime FechaHasta = Convert.ToDateTime(txtFechaHasta.Text);
+
+
+
+            DateTime FechaDesde = dpFechaDesde.Value;
+            DateTime FechaHasta = dpFechaHasta.Value;
             string Patente = txtPatente.Text.Trim();
             cCompra compra = new cCompra();
             DataTable trdo = compra.getComprasxFecha(FechaDesde, FechaHasta, Patente);
@@ -54,19 +46,9 @@ namespace Concesionaria
         private void btnBuscarCompra_Click(object sender, EventArgs e)
         {
             cFunciones fun = new cFunciones();
-            if (fun.ValidarFecha(txtFechaDesde.Text) == false)
-            {
-                Mensaje("La fecha desde es incorrecta");
-                return;
-            }
-
-            if (fun.ValidarFecha(txtFechaHasta.Text) == false)
-            {
-                Mensaje("La fecha Hasta es incorrecta");
-                return;
-            }
-            DateTime FechaDesde = Convert.ToDateTime(txtFechaDesde.Text);
-            DateTime FechaHasta = Convert.ToDateTime(txtFechaHasta.Text);
+           
+            DateTime FechaDesde = dpFechaDesde.Value;
+            DateTime FechaHasta = dpFechaHasta.Value;
             string Patente = txtPatente.Text.Trim();
             cCompra compra = new cCompra();
             DataTable trdo = compra.getComprasxFecha(FechaDesde, FechaHasta, Patente);
