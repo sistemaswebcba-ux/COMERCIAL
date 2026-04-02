@@ -737,12 +737,7 @@ namespace Concesionaria
 
         private Boolean GuardarCliente(SqlConnection con, SqlTransaction Transaccion, Boolean Nuevo)
         {
-            /*  if (txtNroDoc.Text == "")
-              {
-                  MessageBox.Show("Debe ingresar un número de documento para continuar.", Clases.cMensaje.Mensaje());
-                  return false;
-              }
-             * */
+           
             cFunciones fun = new cFunciones();
             if (txtNombre.Text == "")
             {
@@ -2337,17 +2332,11 @@ namespace Concesionaria
             Clases.cCliente cliente = new Clases.cCliente();
             string NroDocumento = txtNroDoc.Text;
             Boolean Nuevo = true;
-            if (NroDocumento != "")
-            {
-                DataTable trdo = cliente.GetClientexNroDoc(CodTipoDoc, NroDocumento);
-
-                if (trdo.Rows.Count > 0)
-                {
-                    if (trdo.Rows[0]["Nombre"].ToString() != "")
-                        Nuevo = false;
-                }
-
-            }
+            if (txtCodCLiente.Text == "")
+                Nuevo = true;
+            else
+                Nuevo = false;
+         
             cFunciones fun = new cFunciones();
             SqlConnection con = new SqlConnection();
             con.ConnectionString = Clases.cConexion.Cadenacon();
