@@ -44,7 +44,6 @@
             this.btnAbrirPreVenta = new System.Windows.Forms.Button();
             this.txtCodPreVenta = new System.Windows.Forms.TextBox();
             this.btnVerDetalleStock = new System.Windows.Forms.Button();
-            this.txtExTitular = new System.Windows.Forms.TextBox();
             this.txtFecha = new System.Windows.Forms.MaskedTextBox();
             this.label57 = new System.Windows.Forms.Label();
             this.txtChasis = new System.Windows.Forms.TextBox();
@@ -382,7 +381,6 @@
             this.groupBox2.Controls.Add(this.btnAbrirPreVenta);
             this.groupBox2.Controls.Add(this.txtCodPreVenta);
             this.groupBox2.Controls.Add(this.btnVerDetalleStock);
-            this.groupBox2.Controls.Add(this.txtExTitular);
             this.groupBox2.Controls.Add(this.txtFecha);
             this.groupBox2.Controls.Add(this.label57);
             this.groupBox2.Controls.Add(this.txtChasis);
@@ -531,15 +529,6 @@
             this.btnVerDetalleStock.UseVisualStyleBackColor = true;
             this.btnVerDetalleStock.Click += new System.EventHandler(this.btnVerDetalleStock_Click);
             // 
-            // txtExTitular
-            // 
-            this.txtExTitular.BackColor = System.Drawing.SystemColors.Control;
-            this.txtExTitular.Location = new System.Drawing.Point(88, 79);
-            this.txtExTitular.Name = "txtExTitular";
-            this.txtExTitular.ReadOnly = true;
-            this.txtExTitular.Size = new System.Drawing.Size(341, 22);
-            this.txtExTitular.TabIndex = 41;
-            // 
             // txtFecha
             // 
             this.txtFecha.Location = new System.Drawing.Point(395, 21);
@@ -620,7 +609,6 @@
             this.lblImporteCompra.Size = new System.Drawing.Size(43, 16);
             this.lblImporteCompra.TabIndex = 32;
             this.lblImporteCompra.Text = "Costo";
-            this.lblImporteCompra.Visible = false;
             // 
             // button1
             // 
@@ -685,7 +673,7 @@
             // radioConcesion
             // 
             this.radioConcesion.AutoSize = true;
-            this.radioConcesion.Location = new System.Drawing.Point(562, 49);
+            this.radioConcesion.Location = new System.Drawing.Point(542, 49);
             this.radioConcesion.Name = "radioConcesion";
             this.radioConcesion.Size = new System.Drawing.Size(90, 20);
             this.radioConcesion.TabIndex = 13;
@@ -696,7 +684,7 @@
             // 
             this.radioPropio.AutoSize = true;
             this.radioPropio.Checked = true;
-            this.radioPropio.Location = new System.Drawing.Point(443, 51);
+            this.radioPropio.Location = new System.Drawing.Point(440, 51);
             this.radioPropio.Name = "radioPropio";
             this.radioPropio.Size = new System.Drawing.Size(66, 20);
             this.radioPropio.TabIndex = 12;
@@ -716,7 +704,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(445, 21);
+            this.label5.Location = new System.Drawing.Point(440, 21);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(77, 16);
             this.label5.TabIndex = 10;
@@ -733,7 +721,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(191, 111);
+            this.label4.Location = new System.Drawing.Point(191, 112);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(34, 16);
             this.label4.TabIndex = 8;
@@ -759,17 +747,16 @@
             // 
             // txtDescripcion
             // 
-            this.txtDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.txtDescripcion.Location = new System.Drawing.Point(332, 19);
+            this.txtDescripcion.BackColor = System.Drawing.Color.White;
+            this.txtDescripcion.Location = new System.Drawing.Point(88, 78);
             this.txtDescripcion.Name = "txtDescripcion";
-            this.txtDescripcion.Size = new System.Drawing.Size(24, 22);
+            this.txtDescripcion.Size = new System.Drawing.Size(341, 22);
             this.txtDescripcion.TabIndex = 3;
-            this.txtDescripcion.Visible = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 82);
+            this.label2.Location = new System.Drawing.Point(19, 82);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 16);
             this.label2.TabIndex = 4;
@@ -808,7 +795,7 @@
             // 
             this.lblPatente.Location = new System.Drawing.Point(19, 24);
             this.lblPatente.Name = "lblPatente";
-            this.lblPatente.Size = new System.Drawing.Size(80, 36);
+            this.lblPatente.Size = new System.Drawing.Size(80, 26);
             this.lblPatente.TabIndex = 0;
             this.lblPatente.Text = "Patente";
             // 
@@ -3361,7 +3348,6 @@
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.ComboBox CmbTipoCombustible2;
-        private System.Windows.Forms.TextBox txtExTitular;
         private System.Windows.Forms.TabPage Garantías;
         private System.Windows.Forms.TextBox txtImporteGarantias;
         private System.Windows.Forms.Label label64;

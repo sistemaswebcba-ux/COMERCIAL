@@ -31,7 +31,7 @@ namespace Concesionaria
         }
 
         private void InicializarComponentes()
-        {
+        {   //10-4-2026
             tprenda = new DataTable();
             Clases.cFunciones fun = new Clases.cFunciones();
             string Lista = "CodEntidad;Nombre;Fecha;Importe;CodPrenda;FechaVencimiento";
@@ -45,9 +45,8 @@ namespace Concesionaria
             if (cmbCiudad.Items.Count > 1)
                 cmbCiudad.SelectedValue = 1;
             fun.LlenarCombo(CmbCiudad2, "Ciudad", "Nombre", "CodCiudad");
-            fun.LlenarCombo(cmbDocumento, "TipoDocumento", "Nombre", "CodTipoDoc");
-            if (cmbDocumento.Items.Count > 1)
-                cmbDocumento.SelectedIndex = 1;
+            cTipoDocumento tipoDoc = new cTipoDocumento();
+            tipoDoc.UbicaCombo(cmbDocumento);
             fun.LlenarCombo(CmbBarrio, "Barrio", "Nombre", "CodBarrio");
             fun.LlenarCombo(CmbGastosTransferencia, "CategoriaGastoTransferencia", "Descripcion", "Codigo");
             fun.LlenarCombo(CmbGastoRecepcion, "CategoriaGastoRecepcion", "Descripcion", "Codigo");
@@ -218,11 +217,11 @@ namespace Concesionaria
             {
                 string exTitular = trdo.Rows[0]["Nombre"].ToString();
                 exTitular = exTitular + " " + trdo.Rows[0]["Apellido"].ToString();
-                txtExTitular.Text = exTitular;
+                //txtExTitular.Text = exTitular;
             }
             else
             {
-                txtExTitular.Text = "";
+               // txtExTitular.Text = "";
             }
 
         }
@@ -1528,7 +1527,7 @@ namespace Concesionaria
             txtChasis.Text = "";
             if (cmbCiudad.SelectedIndex > 0)
                 cmbCiudad.SelectedIndex = 0;
-            txtExTitular.Text = "";
+           // txtExTitular.Text = "";
             GrillaCheques.DataSource = null;
             txtImporteCobranza.Text = "";
             txtFechaCompromiso.Text = "";
@@ -3105,8 +3104,8 @@ namespace Concesionaria
                         DataTable tcli = cli.GetClientesxCodigo(CodCliente);
                         if (tcli.Rows.Count > 0)
                         {
-                            txtExTitular.Text = tcli.Rows[0]["Nombre"].ToString();
-                            txtExTitular.Text = txtExTitular.Text + " " + tcli.Rows[0]["Apellido"].ToString();
+                            //txtExTitular.Text = tcli.Rows[0]["Nombre"].ToString();
+                          //  txtExTitular.Text = txtExTitular.Text + " " + tcli.Rows[0]["Apellido"].ToString();
                         }
                     }
 

@@ -392,7 +392,7 @@ namespace Concesionaria.Clases
             sql = "select a.CodAuto,a.Patente";
             sql = sql + ",m.Nombre";
             sql = sql + ",a.Descripcion as Descripción";
-            sql = sql + ",(select aa.Nombre from anio aa where aa.CodAnio = a.CodAnio) as Modelo ";
+            sql = sql + ",a.Anio as Modelo ";
             sql = sql + ",sa.CodStOCk ";
             sql = sql + " from auto a,marca m,stockauto sa ";
 

@@ -56,10 +56,11 @@ namespace Concesionaria
             //  fun.LlenarCombo(cmbCiudad, "Ciudad", "Nombre", "CodCiudad");
             if (cmbCiudad.Items.Count > 0)
                 cmbCiudad.SelectedValue = 1;
-            fun.LlenarCombo(cmbDocumento, "TipoDocumento", "Nombre", "CodTipoDoc");
-            if (cmbDocumento.Items.Count > 0)
-                cmbDocumento.SelectedIndex = 1;
-            cmbDocumento.Enabled = false;
+
+            cTipoDocumento tipoDoc = new cTipoDocumento();
+            tipoDoc.UbicaCombo(cmbDocumento);
+
+           
             // fun.LlenarCombo(CmbBarrio, "Barrio", "Nombre", "CodBarrio");
             //fun.LlenarCombo(CmbCategoriaGasto, "CategoriaGasto", "Nombre", "CodCategoriaGasto");
             fun.LlenarCombo(CmbGastoRecepcion, "CategoriaGasto", "Nombre", "CodCategoriaGasto");
