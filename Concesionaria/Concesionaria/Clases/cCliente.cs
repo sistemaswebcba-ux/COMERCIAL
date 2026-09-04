@@ -87,8 +87,12 @@ namespace Concesionaria.Clases
         public DataTable GetClientexNroDoc(Int32? CodTipoDoc, string NroDocumento)
         {
             string sql = "select * from cliente";
-            sql = sql + " where CodTipoDoc =" + CodTipoDoc.ToString();
-            sql = sql + " and NroDocumento =" + "'" + NroDocumento + "'";
+            sql = sql + " where NroDocumento =" + "'" + NroDocumento + "'";
+            if (CodTipoDoc !=null)
+            {
+                sql = sql + " and CodTipoDoc =" + CodTipoDoc.ToString();
+            }
+
             DataTable trdo = cDb.ExecuteDataTable (sql);
             return trdo ;
         }

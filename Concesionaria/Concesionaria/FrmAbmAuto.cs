@@ -326,8 +326,7 @@ namespace Concesionaria
             fun.LimpiarGenerico(this);
             txtCodAuto.Text = "";
             Grupo.Enabled = true;
-            if (cmb_CodMarca.Items.Count > 0)
-                cmb_CodMarca.SelectedIndex = 1;
+            
         }
 
         private void btnEditar_Click_1(object sender, EventArgs e)
@@ -381,12 +380,37 @@ namespace Concesionaria
             {
                 //se usa por las dudas ingreso ya exista el deni
                 //y no grabe repetido el documento
-                UbicaAuto(); 
+                UbicaAuto();
 
                 if (txtCodAuto.Text == "")
+                {
                     fun.GuardarNuevoGenerico(this, "Auto");
+                    if (ChkAltaStock.Checked == true)
+                    {
+                        DateTime fecha = DateTime.Now;
+                        cAuto auto = new Clases.cAuto();
+                        cStockAuto stock = new cStockAuto();
+
+                        Int32 CodAuto = auto.GetMaxCodAuto();
+                        stock.InsertarStockAuto(CodAuto, fecha.ToShortDateString(), null, Principal.CodUsuarioLogueado, null);
+                    }
+                }
                 else
+                {
                     fun.ModificarGenerico(this, "Auto", "CodAuto", txtCodAuto.Text);
+                    if (ChkAltaStock.Checked == true)
+                    {
+                        Int32 CodAuto = Convert.ToInt32(txtCodAuto.Text);
+                        Int32 CodStock = 0;
+                        DateTime fecha = DateTime.Now;
+                        cAuto auto = new Clases.cAuto();
+                        cStockAuto stock = new cStockAuto();
+                        CodStock = stock.GetMaxCodStockxAutoVigente(CodAuto);
+                        if (CodStock == 0)
+                            stock.InsertarStockAuto(CodAuto, fecha.ToShortDateString(), null, Principal.CodUsuarioLogueado, null);
+                    }
+                }
+
                 MessageBox.Show("Datos grabados Correctamente", Clases.cMensaje.Mensaje());
                 Botonera(1);
                 fun.LimpiarGenerico(this);
@@ -472,6 +496,113 @@ namespace Concesionaria
             {
                 txt_RutaImagen.Text = "";
             }
+        }
+
+        private void btnAgregarCiudad_Click(object sender, EventArgs e)
+        {
+            if (cmbProvincia.SelectedIndex < 1)
+            {
+                MessageBox.Show("Debe seleccionar una provincia para continuar");
+                return;
+            }
+            Principal.CodigoPrincipalAbm = "1";
+            Principal.CampoIdSecundario = "CodCiudad";
+            Principal.CampoNombreSecundario = "Nombre";
+            Principal.NombreTablaSecundario = "Ciudad";
+            FrmAltaBasica form = new FrmAltaBasica();
+            form.FormClosing += new FormClosingEventHandler(ContinuarCombos);
+            form.ShowDialog();
+        }
+        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Principal.CampoIdSecundario = "CodMarca";
+            Principal.CampoNombreSecundario = "Nombre";
+            Principal.NombreTablaSecundario = "Marca";
+            Principal.CampoIdSecundarioGenerado = "";
+            FrmAltaBasica form = new FrmAltaBasica();
+            form.FormClosing += new FormClosingEventHandler(ContinuarCombos);
+            form.ShowDialog();
+        }
+
+        private void BtnNuevaProvincia_Click(object sender, EventArgs e)
+        {
+
+            Principal.CampoIdSecundario = "CodProvincia";
+            Principal.CampoNombreSecundario = "Nombre";
+            Principal.NombreTablaSecundario = "Provincia";
+            Principal.CodigoPrincipalAbm = "1";
+            FrmAltaBasica form = new FrmAltaBasica();
+            form.FormClosing += new FormClosingEventHandler(ContinuarCombos);
+            form.ShowDialog();
+        }
+
+        private void ContinuarCombos(object sender, FormClosingEventArgs e)
+        {
+            if (Principal.CampoIdSecundarioGenerado != "")
+            {
+                Clases.cFunciones fun = new Clases.cFunciones();
+                switch (Principal.NombreTablaSecundario)
+                {
+                    case "Ciudad":
+                        Int32 CodCiudad = 0;
+                        if (Principal.CodigoPrincipalAbm == "1")
+                        {
+                            //fun.LlenarCombo(cmbCiudad, "Ciudad", "Nombre", "CodCiudad");                 
+                            CodCiudad = Convert.ToInt32(Principal.CampoIdSecundarioGenerado);
+                            Int32 CodProvincia = Convert.ToInt32(cmbProvincia.SelectedValue);
+                            cCiudad city = new Clases.cCiudad();
+                            city.ActualizarProvincia(CodCiudad, CodProvincia);
+                            DataTable tbCiudad = city.GetCiudadxCodProvincia(CodProvincia);
+                            fun.LlenarComboDatatable(cmb_CodCiudad, tbCiudad, "Nombre", "CodCiudad");
+                            cmb_CodCiudad.SelectedValue = Principal.CampoIdSecundarioGenerado;
+                        }
+
+                        break;
+                    case "Marca":
+                        fun.LlenarCombo(cmb_CodMarca, "Marca", "Nombre", "CodMarca");
+                        cmb_CodMarca.SelectedValue = Principal.CampoIdSecundarioGenerado;
+                        break;
+                    case "Barrio":
+                        /*
+                        Int32 CodCity = Convert.ToInt32(cmbCiudad2.SelectedValue);
+                        Int32 CodBarrio = Convert.ToInt32(Principal.CampoIdSecundarioGenerado);
+                        cBarrio obj = new cBarrio();
+                        obj.ActualizarCiudad(CodBarrio, CodCity);
+                        DataTable tbBarrio = obj.GetBarrioxCiudad(CodCity);
+                        fun.LlenarComboDatatable(CmbBarrio, tbBarrio, "Nombre", "CodBarrio");
+                        // fun.LlenarCombo(CmbBarrio, "Barrio", "Nombre", "CodBarrio");
+                        CmbBarrio.SelectedValue = Principal.CampoIdSecundarioGenerado;
+                        */
+                        break;                      
+                    case "tipoutilitario":
+                        fun.LlenarCombo(cmb_CodTipoUtilitario, "TipoUtilitario", "Nombre", "CodTipo");
+                        cmb_CodTipoUtilitario.SelectedValue = Principal.CampoIdSecundarioGenerado;
+                        break;
+                    case "Sucursal":
+                    //    fun.LlenarCombo(cmbSucursal, "Sucursal", "Nombre", "CodSucursal");
+                    //    cmbSucursal.SelectedValue = Principal.CampoIdSecundarioGenerado;
+
+                        break;
+                    case "Provincia":
+                        if (Principal.CodigoPrincipalAbm == "1")
+                        {
+                            fun.LlenarCombo(cmbProvincia, "Provincia", "Nombre", "CodProvincia");
+                            cmbProvincia.SelectedValue = Principal.CampoIdSecundarioGenerado;
+                        }             
+                        break;
+                }
+            }
+        }
+
+        private void btnNuevoTipoUtilitario_Click(object sender, EventArgs e)
+        {
+            Principal.CampoIdSecundario = "CodTipo";
+            Principal.CampoNombreSecundario = "Nombre";
+            Principal.NombreTablaSecundario = "tipoutilitario";
+            FrmAltaBasica form = new FrmAltaBasica();
+            form.FormClosing += new FormClosingEventHandler(ContinuarCombos);
+            form.ShowDialog();
         }
     }
 }

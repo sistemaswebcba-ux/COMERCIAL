@@ -77,6 +77,9 @@
             this.txt_Patente = new System.Windows.Forms.TextBox();
             this.lblPatente = new System.Windows.Forms.Label();
             this.btnAgregarCiudad = new System.Windows.Forms.Button();
+            this.ChkAltaStock = new System.Windows.Forms.CheckBox();
+            this.BtnNuevaProvincia = new System.Windows.Forms.Button();
+            this.btnNuevoTipoUtilitario = new System.Windows.Forms.Button();
             this.BarraBotones.SuspendLayout();
             this.Grupo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Imagen)).BeginInit();
@@ -96,7 +99,7 @@
             this.btnSalir});
             this.BarraBotones.Location = new System.Drawing.Point(0, 0);
             this.BarraBotones.Name = "BarraBotones";
-            this.BarraBotones.Size = new System.Drawing.Size(829, 39);
+            this.BarraBotones.Size = new System.Drawing.Size(819, 39);
             this.BarraBotones.TabIndex = 10;
             this.BarraBotones.Text = "toolStrip1";
             // 
@@ -185,7 +188,11 @@
             // 
             // Grupo
             // 
+            this.Grupo.Controls.Add(this.btnNuevoTipoUtilitario);
+            this.Grupo.Controls.Add(this.BtnNuevaProvincia);
+            this.Grupo.Controls.Add(this.ChkAltaStock);
             this.Grupo.Controls.Add(this.btnSubirImagen);
+            this.Grupo.Controls.Add(this.btnAgregarCiudad);
             this.Grupo.Controls.Add(this.txt_RutaImagen);
             this.Grupo.Controls.Add(this.label13);
             this.Grupo.Controls.Add(this.Imagen);
@@ -232,7 +239,7 @@
             // 
             // btnSubirImagen
             // 
-            this.btnSubirImagen.Location = new System.Drawing.Point(364, 258);
+            this.btnSubirImagen.Location = new System.Drawing.Point(364, 314);
             this.btnSubirImagen.Name = "btnSubirImagen";
             this.btnSubirImagen.Size = new System.Drawing.Size(75, 34);
             this.btnSubirImagen.TabIndex = 55;
@@ -242,7 +249,7 @@
             // 
             // txt_RutaImagen
             // 
-            this.txt_RutaImagen.Location = new System.Drawing.Point(500, 279);
+            this.txt_RutaImagen.Location = new System.Drawing.Point(500, 296);
             this.txt_RutaImagen.Name = "txt_RutaImagen";
             this.txt_RutaImagen.Size = new System.Drawing.Size(132, 22);
             this.txt_RutaImagen.TabIndex = 54;
@@ -424,7 +431,7 @@
             // 
             // txtCodStock
             // 
-            this.txtCodStock.Location = new System.Drawing.Point(557, 28);
+            this.txtCodStock.Location = new System.Drawing.Point(560, 21);
             this.txtCodStock.Name = "txtCodStock";
             this.txtCodStock.Size = new System.Drawing.Size(50, 22);
             this.txtCodStock.TabIndex = 28;
@@ -438,10 +445,11 @@
             this.button1.Size = new System.Drawing.Size(40, 28);
             this.button1.TabIndex = 18;
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtCodAuto
             // 
-            this.txtCodAuto.Location = new System.Drawing.Point(540, 25);
+            this.txtCodAuto.Location = new System.Drawing.Point(504, 21);
             this.txtCodAuto.Name = "txtCodAuto";
             this.txtCodAuto.Size = new System.Drawing.Size(50, 22);
             this.txtCodAuto.TabIndex = 14;
@@ -551,21 +559,51 @@
             // btnAgregarCiudad
             // 
             this.btnAgregarCiudad.Image = global::Concesionaria.Properties.Resources.page_add;
-            this.btnAgregarCiudad.Location = new System.Drawing.Point(803, 151);
+            this.btnAgregarCiudad.Location = new System.Drawing.Point(761, 103);
             this.btnAgregarCiudad.Name = "btnAgregarCiudad";
             this.btnAgregarCiudad.Size = new System.Drawing.Size(40, 28);
             this.btnAgregarCiudad.TabIndex = 17;
             this.btnAgregarCiudad.UseVisualStyleBackColor = true;
+            this.btnAgregarCiudad.Click += new System.EventHandler(this.btnAgregarCiudad_Click);
+            // 
+            // ChkAltaStock
+            // 
+            this.ChkAltaStock.AutoSize = true;
+            this.ChkAltaStock.Location = new System.Drawing.Point(413, 270);
+            this.ChkAltaStock.Name = "ChkAltaStock";
+            this.ChkAltaStock.Size = new System.Drawing.Size(87, 20);
+            this.ChkAltaStock.TabIndex = 57;
+            this.ChkAltaStock.Text = "Alta Stock";
+            this.ChkAltaStock.UseVisualStyleBackColor = true;
+            // 
+            // BtnNuevaProvincia
+            // 
+            this.BtnNuevaProvincia.Image = global::Concesionaria.Properties.Resources.page_add;
+            this.BtnNuevaProvincia.Location = new System.Drawing.Point(364, 104);
+            this.BtnNuevaProvincia.Name = "BtnNuevaProvincia";
+            this.BtnNuevaProvincia.Size = new System.Drawing.Size(40, 28);
+            this.BtnNuevaProvincia.TabIndex = 58;
+            this.BtnNuevaProvincia.UseVisualStyleBackColor = true;
+            this.BtnNuevaProvincia.Click += new System.EventHandler(this.BtnNuevaProvincia_Click);
+            // 
+            // btnNuevoTipoUtilitario
+            // 
+            this.btnNuevoTipoUtilitario.Image = global::Concesionaria.Properties.Resources.page_add;
+            this.btnNuevoTipoUtilitario.Location = new System.Drawing.Point(364, 224);
+            this.btnNuevoTipoUtilitario.Name = "btnNuevoTipoUtilitario";
+            this.btnNuevoTipoUtilitario.Size = new System.Drawing.Size(40, 28);
+            this.btnNuevoTipoUtilitario.TabIndex = 59;
+            this.btnNuevoTipoUtilitario.UseVisualStyleBackColor = true;
+            this.btnNuevoTipoUtilitario.Click += new System.EventHandler(this.btnNuevoTipoUtilitario_Click);
             // 
             // FrmAbmAuto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(829, 487);
+            this.ClientSize = new System.Drawing.Size(819, 487);
             this.Controls.Add(this.Grupo);
             this.Controls.Add(this.BarraBotones);
-            this.Controls.Add(this.btnAgregarCiudad);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmAbmAuto";
@@ -632,5 +670,8 @@
         private System.Windows.Forms.PictureBox Imagen;
         private System.Windows.Forms.TextBox txt_RutaImagen;
         private System.Windows.Forms.Button btnSubirImagen;
+        private System.Windows.Forms.CheckBox ChkAltaStock;
+        private System.Windows.Forms.Button BtnNuevaProvincia;
+        private System.Windows.Forms.Button btnNuevoTipoUtilitario;
     }
 }

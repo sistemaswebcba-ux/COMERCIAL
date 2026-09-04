@@ -739,11 +739,13 @@ namespace Concesionaria
                 //DEBO OBTENER EL COD CLIETNE
                 if (GrabaClienteNuevo == true)
                 {
+                    
                     SqlCommand comand2 = new SqlCommand();
                     comand2.Connection = con;
                     comand2.Transaction = Transaccion;
                     comand2.CommandText = "select max(CodCliente) as CodCliente from Cliente";
                     txtCodCLiente.Text = comand2.ExecuteScalar().ToString();
+                    
                 }
 
                 //saco el auto del stock
@@ -1137,6 +1139,7 @@ namespace Concesionaria
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.Message.ToString());
                 Transaccion.Rollback();
                 MessageBox.Show("Hubo un error en el proceso de grabación", Clases.cMensaje.Mensaje());
             }
@@ -1179,7 +1182,7 @@ namespace Concesionaria
                 GrabaClienteNuevo = true;
                 sql = cliente.GetSqlInsertarCliente(CodTipoDoc, NroDocumento, Nombre,
                       Apellido, Telefono, Celular, Calle, Altura, CodBarrio, Observacion, RutaImagen, FechaNacimiento);
-                txtCodCLiente.Text = cliente.GetMaxCliente().ToString();
+               
             }
             else
             {
@@ -1578,13 +1581,6 @@ namespace Concesionaria
                 MessageBox.Show("Debe ingresar una fecha para continuar.", Clases.cMensaje.Mensaje());
                 return false;
             }
-
-            if (fun.ValidarFecha(txtFecha.Text) == false)
-            {
-                MessageBox.Show("La fecha ingresada es incorrecta.", Clases.cMensaje.Mensaje());
-                return false;
-            }
-
 
             if (txtTotalPrenda.Text != "")
             {
